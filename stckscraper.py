@@ -2,6 +2,7 @@ from os import link
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import os
 
 url="https://www.moneycontrol.com/india/stockpricequote"
 page_response = requests.get(url, timeout=240)
@@ -12,7 +13,8 @@ titles=main_table.find_all('a',class_='bl_12')
 
 links2=[]
     
-
+path='D:/Stocks/Temp'
+os.chdir(path)
 
 page_links=page_content.find('div',class_='MT2 PA10 brdb4px alph_pagn')
 page_links=page_links.find_all('a')
@@ -73,7 +75,7 @@ for i in links2:
       
        
     print(df)
-    f1=open(f"Stocks{k}.csv","w")
+    f1=open(f"D:/Stocks/Temp/Stocks{k}.csv","w")
     df.to_csv(f1)
     
 

@@ -6,5 +6,6 @@ from fastnumbers import isfloat
 from fastnumbers import fast_float
 import pandas as pd
 import time 
-t=time.asctime( time.localtime(time.time()) )
-print(t[:10])
+
+for i in range(100):
+    print(time.time())
